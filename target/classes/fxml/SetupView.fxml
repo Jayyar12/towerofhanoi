@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+<StackPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" 
+           fx:controller="com.towerofhanoi.controller.SetupController">
+
+    <BorderPane>
+        <top>
+            <HBox alignment="CENTER_LEFT" style="-fx-padding: 20;">
+                <Button fx:id="backButton" text="← Back" styleClass="button"/>
+            </HBox>
+        </top>
+        <bottom>
+            <StackPane alignment="BOTTOM_CENTER" prefHeight="150">
+                 <SVGPath content="M0,50 C200,0 400,100 600,50 C800,0 1000,100 1200,50 L1200,150 L0,150 Z" 
+                     styleClass="orange-wave" scaleX="2" scaleY="1.5"/>
+            </StackPane>
+        </bottom>
+    </BorderPane>
+    <!-- Modal Layer -->
+    <VBox styleClass="card-pane" maxWidth="400" maxHeight="350">
+        <Label text="Custom game" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+        
+        <!-- Disk Count -->
+        <VBox spacing="5">
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label text="Number of disks"/>
+                <Label fx:id="diskCountLabel" text="3" style="-fx-font-weight: bold; -fx-text-fill: #5fcfc8;"/>
+            </HBox>
+            <Slider fx:id="diskSlider" min="3" max="8" value="3" blockIncrement="1" majorTickUnit="1" minorTickCount="0" snapToTicks="true"/>
+        </VBox>
+        <!-- Initial Rod Selection -->
+        <HBox alignment="CENTER_LEFT" spacing="20">
+            <Label text="Select initial rod"/>
+            <RadioButton fx:id="radioA" text="A" selected="true">
+                <toggleGroup>
+                    <ToggleGroup fx:id="rodGroup"/>
+                </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="radioB" text="B" toggleGroup="$rodGroup"/>
+            <RadioButton fx:id="radioC" text="C" toggleGroup="$rodGroup"/>
+        </HBox>
+        <!-- Bonus Toggles -->
+        <HBox alignment="CENTER_LEFT" spacing="50">
+            <Label text="Shuffle" minWidth="80"/>
+            <ToggleButton fx:id="shuffleToggle" text="OFF" styleClass="button"/>
+        </HBox>
+        
+        <HBox alignment="CENTER_LEFT" spacing="50">
+            <Label text="Randomize" minWidth="80"/>
+            <ToggleButton fx:id="randomizeToggle" text="OFF" styleClass="button"/>
+        </HBox>
+        <Button fx:id="playButton" text="Start Game" styleClass="button" maxWidth="Infinity" style="-fx-margin-top: 20;"/>
+    </VBox>
+</StackPane>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.SVGPath?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="com.towerofhanoi.controller.GameController"
+            prefWidth="1200" prefHeight="700"
+            minWidth="1200" minHeight="700">
+
+    <!-- Top HUD -->
+    <top>
+        <HBox alignment="CENTER" spacing="80" style="-fx-padding: 20;">
+            <VBox alignment="CENTER">
+                <Label text="Total moves" styleClass="hud-text"/>
+                <StackPane>
+                    <Label text="0" style="-fx-text-fill: transparent; -fx-padding: 15; -fx-border-color: #333; -fx-border-radius: 50;"/>
+                    <Label fx:id="moveCounter" text="0" styleClass="hud-value"/>
+                </StackPane>
+            </VBox>
+            
+            <VBox alignment="CENTER">
+                <Label text="Time" styleClass="hud-text"/>
+                <Label fx:id="timeLabel" text="00:00:00" styleClass="hud-value"/>
+            </VBox>
+
+            <Button fx:id="menuButton" text="☰" 
+            style="-fx-background-color: transparent; -fx-font-size: 30px; -fx-text-fill: #e67e22; -fx-cursor: hand; -fx-padding: 0 10 0 10;"
+            minWidth="50" minHeight="50"/>
+        </HBox>
+    </top>
+
+    <!-- Game Board -->
+    <center>
+        <StackPane>
+            <!-- Background Floor -->
+             <VBox alignment="BOTTOM_CENTER">
+                <StackPane alignment="BOTTOM_CENTER" prefHeight="150">
+                     <SVGPath content="M0,50 C200,0 400,100 600,50 C800,0 1000,100 1200,50 L1200,150 L0,150 Z" 
+                         styleClass="orange-wave" scaleX="2" scaleY="1.5"/>
+                </StackPane>
+            </VBox>
+
+            <!-- Rods Container -->
+            <HBox alignment="BOTTOM_CENTER" spacing="100" style="-fx-padding: 0 0 50 0;">
+                
+                <!-- Rod A -->
+                <VBox alignment="BOTTOM_CENTER" spacing="10">
+                    <StackPane alignment="BOTTOM_CENTER">
+                        <!-- The Visual Stick -->
+                        <Rectangle width="15" height="250" styleClass="tower-stick"/>
+                        <!-- The Drop Zone for Disks -->
+                        <VBox fx:id="rodA" alignment="BOTTOM_CENTER" prefHeight="250" prefWidth="150" spacing="2"/>
+                    </StackPane>
+                    <Label text="A" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #9822e6ff;"/>
+                </VBox>
+
+                <!-- Rod B -->
+                <VBox alignment="BOTTOM_CENTER" spacing="10">
+                    <StackPane alignment="BOTTOM_CENTER">
+                        <Rectangle width="15" height="250" styleClass="tower-stick"/>
+                        <VBox fx:id="rodB" alignment="BOTTOM_CENTER" prefHeight="250" prefWidth="150" spacing="2"/>
+                    </StackPane>
+                    <Label text="B" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #227de6ff;"/>
+                </VBox>
+
+                <!-- Rod C -->
+                <VBox alignment="BOTTOM_CENTER" spacing="10">
+                    <StackPane alignment="BOTTOM_CENTER">
+                        <Rectangle width="15" height="250" styleClass="tower-stick"/>
+                        <VBox fx:id="rodC" alignment="BOTTOM_CENTER" prefHeight="250" prefWidth="150" spacing="2"/>
+                    </StackPane>
+                    <Label text="C" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #1edf18ff;"/>
+                </VBox>
+
+            </HBox>
+        </StackPane>
+    </center>
+
+</BorderPane>
