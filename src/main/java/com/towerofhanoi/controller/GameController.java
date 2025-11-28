@@ -6,7 +6,7 @@ import com.towerofhanoi.model.GameModel;
 import com.towerofhanoi.model.Tower;
 import com.towerofhanoi.util.TimeFormatter;
 import com.towerofhanoi.util.MoveValidator;
-import com.towerofhanoi.util.SoundManager; // ADD THIS IMPORT
+import com.towerofhanoi.util.SoundManager;
 import java.util.Collections;
 import java.util.Arrays;
 import java.util.List;
@@ -314,7 +314,7 @@ public class GameController {
 
             Button resumeButton = (Button) optionsOverlay.lookup("#resumeButton");
             Button restartButton = (Button) optionsOverlay.lookup("#restartButton");
-            Button exitButton = (Button) optionsOverlay.lookup("#exitButton");
+            Button leaveButton = (Button) optionsOverlay.lookup("#leaveButton");
 
             Runnable closeOverlay = () -> {
                 overlayContainer.getChildren().remove(gameRoot);
@@ -350,8 +350,8 @@ public class GameController {
                 }
             });
 
-            // Exit to Menu
-            exitButton.setOnAction(e -> {
+            // Leave Game
+            leaveButton.setOnAction(e -> {
                 stopTimer();
                 Main.loadScene("/fxml/WelcomeView.fxml", "Tower of Hanoi");
             });

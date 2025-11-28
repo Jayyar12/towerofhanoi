@@ -18,9 +18,8 @@ public class SetupController {
     @FXML private ToggleButton shuffleToggle, randomizeToggle;
     @FXML private Button playButton;
     @FXML private Button backButton;
-    @FXML private Label victoryMessage;
     @FXML private Button playAgainButton;
-    @FXML private Button exitButton;
+    @FXML private Button LeaveButton;
 
     @FXML
     public void initialize() {
@@ -50,8 +49,8 @@ public class SetupController {
             playAgainButton.setOnAction(event -> playAgain());
         }
 
-        if (exitButton != null) {
-            exitButton.setOnAction(event -> goBack());
+        if (LeaveButton != null) {
+            LeaveButton.setOnAction(event -> goBack());
         }
     }
 
@@ -104,6 +103,7 @@ public class SetupController {
         Main.loadScene("/fxml/WelcomeView.fxml", "Tower of Hanoi");
     }
 
+    @SuppressWarnings("CallToPrintStackTrace")
     private void startGame() {
         try {
             // Stop menu music before starting the game
