@@ -36,7 +36,7 @@
                 style="-fx-font-size: 16px; -fx-padding: 10 20;"/>
 
         <Button fx:id="exitButton"
-                text="Exit to Menu"
+                text="Exit"
                 styleClass="secondary-button"
                 maxWidth="250"
                 style="-fx-font-size: 16px; -fx-padding: 10 20;"/>
